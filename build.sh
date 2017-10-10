@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+rm -rf build
+mkdir -p build/apk
+
+set -x
+
+#TODO ensure that ANDROID_HOME is set
+
+echo "Creating base AndroidManifest.xml"
+$ANDROID_HOME/build-tools/26.0.2/aapt p -M app/AndroidManifest.xml -I $ANDROID_HOME/platforms/android-26/android.jar -f -F build/base.apk
+unzip build/base.apk -d build/apk
+
+echo "Creating empty classes.dex"
+touch build/apk/classes.dex
+
+echo "Creating unsigned archive"
+zip -j -r build/app-unsigned.apk build/apk
+
+KEYSTORE_PASS=android $ANDROID_HOME/build-tools/26.0.2/apksigner sign --v1-signing-enabled false --ks app/keystore.jks --out build/signed-release.apk --ks-pass env:KEYSTORE_PASS --ks-key-alias android build/app-unsigned.apk
+
+set +x
+
+echo
+echo
+echo
+echo "#######################################"
+echo "RESULTING APK SIZE: $(stat -f '%z' build/signed-release.apk)"
+
