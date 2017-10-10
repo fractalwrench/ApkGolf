@@ -1,9 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -ex
 
 rm -rf build
 mkdir -p build/apk
-
-set -x
 
 # Use zopfli compression if available
 recompress() {
@@ -14,7 +12,7 @@ recompress() {
     fi
 }
 
-#TODO ensure that ANDROID_HOME is set
+: ${ANDROID_HOME:?"Need to set ANDROID_HOME"}
 
 echo "Creating base apk"
 cp app/AndroidManifest.xml build/apk/
