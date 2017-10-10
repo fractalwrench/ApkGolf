@@ -1,0 +1,69 @@
+03 00       # xml chunk type
+08 00       # header size
+98 00 00 00 # chunk size
+
+01 00       # string pool type
+18 00       # header size, 24 bytes
+40 00 00 00 # chunk size
+03 00 00 00 # string count
+00 00 00 00 # style count
+00 01 00 00 # flags, utf-8 bit is set
+24 00 00 00 # strings start
+
+# string offsets:
+
+00 00 00 00
+0b 00 00 00
+15 00 00 00
+
+# string data:
+
+08 08 6d 61 # len=8, "manifest"
+6e 69 66 65
+73 74 00 
+
+07 07 70 61 # len=7, "package"
+63 6b 61 67
+65 00
+
+03 03 63 2e # len=3, "c.c"
+63 00
+
+00          # 0-padding
+
+# xml contents:
+
+02 01       # XML start element
+10 00       # header size
+38 00 00 00 # chunk size
+00 00 00 00 # line number
+00 00 00 00 # comment, index into string pool
+00 00 00 00 # namespace index, 0
+00 00 00 00 # name of the node, "manifest"
+14 00       # attributes offset
+14 00       # attributes size
+01 00       # attribute count
+00 00       # id index
+00 00       # class index
+00 00       # style index
+
+# attribute data
+
+ff ff ff ff # namespace index, -1
+01 00 00 00 # name, "package"
+02 00 00 00 # raw value, "c.c"
+
+# typed value for attribute[0]
+
+08 00       # size
+00          # always 0
+03          # TYPE_STRING
+02 00 00 00 # value index, "c.c"
+
+03 01       # XML end element
+10 00       # header size
+18 00 00 00 # chunk size 
+00 00 00 00 # line number
+00 00 00 00 # comment
+00 00 00 00 # namespace index, 0
+00 00 00 00 # name of the node, "manifest"
