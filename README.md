@@ -19,5 +19,4 @@ Contributed by [Gautam Korlam](https://github.com/kageiit) in this [Pull Request
 
 ## Use Elliptic-curve signatures (922 bytes, 16% reduction)
 Elliptic-curve signatures are even smaller than DSA, and are supported in APK v2 signing.
-https://github.com/fractalwrench/ApkGolf/pull/4
-Contributed by[Robert Xiao](https://github.com/nneonneo) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/4)
+Contributed by [Robert Xiao](https://github.com/nneonneo) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/4)
