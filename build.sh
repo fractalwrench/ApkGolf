@@ -21,15 +21,8 @@ set -x
 echo "Creating keystore"
 keytool -genkeypair -keyalg EC -keysize 256 -v -keystore build/keystore.jks -storepass android -dname 'C=' -alias android -keypass android
 
-echo "Creating base AndroidManifest.xml"
-$ANDROID_HOME/build-tools/26.0.2/aapt p -M app/AndroidManifest.xml -S app/res -I $ANDROID_HOME/platforms/android-26/android.jar -f -F build/base.apk
-unzip build/base.apk -d build/apk
-
-# Don't use the original manifest with all the generated junk, use the compiled xml from layout instead
-rm build/apk/AndroidManifest.xml
-rm build/apk/resources.arsc
-mv build/apk/res/layout/manifest.xml build/apk/AndroidManifest.xml
-rm -rf build/apk/res
+echo "Creating base apk"
+cp app/AndroidManifest.xml build/apk/
 
 echo "Creating unsigned archive"
 zip -j -r build/app-unsigned.apk build/apk
@@ -47,3 +40,5 @@ echo
 echo "#######################################"
 echo "RESULTING APK SIZE: $(stat -f '%z' build/signed-release.apk)"
 
+echo "Copying to project root dir"
+cp build/signed-release.apk signed-release.apk
