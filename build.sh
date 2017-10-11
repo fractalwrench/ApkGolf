@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+set -e
+
 rm -rf build
 mkdir -p build/apk
 
-set -x
+: ${ANDROID_HOME:?"Need to set ANDROID_HOME"}
 
 # Use zopfli compression if available
 recompress() {
@@ -14,7 +16,10 @@ recompress() {
     fi
 }
 
-#TODO ensure that ANDROID_HOME is set
+set -x
+
+echo "Creating keystore"
+keytool -genkeypair -keyalg EC -keysize 256 -v -keystore build/keystore.jks -storepass android -dname 'C=' -alias android -keypass android
 
 echo "Creating base AndroidManifest.xml"
 $ANDROID_HOME/build-tools/26.0.2/aapt p -M app/AndroidManifest.xml -S app/res -I $ANDROID_HOME/platforms/android-26/android.jar -f -F build/base.apk
@@ -35,7 +40,7 @@ zip -j -r build/app-unsigned.apk build/apk
 recompress build/app-unsigned.apk
 
 echo "Signing archive"
-KEYSTORE_PASS=android $ANDROID_HOME/build-tools/26.0.2/apksigner sign --v1-signing-enabled false --ks app/keystore.jks --out build/signed-release.apk --ks-pass env:KEYSTORE_PASS --ks-key-alias android --min-sdk-version 24 build/app-unsigned.apk
+$ANDROID_HOME/build-tools/26.0.2/apksigner sign --v1-signing-enabled false --ks build/keystore.jks --out build/signed-release.apk --ks-pass pass:android --ks-key-alias android --min-sdk-version 24 build/app-unsigned.apk
 
 set +x
 
