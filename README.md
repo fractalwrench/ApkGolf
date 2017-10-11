@@ -16,3 +16,8 @@ Contributed by [Madis Pink](https://github.com/madisp) in this [Pull Request](ht
 ## Insane zopfli compression (1180 bytes, 9% reduction)
 This improves compression of the APK.
 Contributed by [Gautam Korlam](https://github.com/kageiit) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/5)
+
+## Use Elliptic-curve signatures (922 bytes, 16% reduction)
+Elliptic-curve signatures are even smaller than DSA, and are supported in APK v2 signing.
+https://github.com/fractalwrench/ApkGolf/pull/4
+Contributed by[Robert Xiao](https://github.com/nneonneo) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/4)
