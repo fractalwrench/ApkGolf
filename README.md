@@ -15,8 +15,16 @@ Contributed by [Madis Pink](https://github.com/madisp) in this [Pull Request](ht
 
 ## Insane zopfli compression (1180 bytes, 9% reduction)
 This improves compression of the APK.
+
 Contributed by [Gautam Korlam](https://github.com/kageiit) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/5)
 
 ## Use Elliptic-curve signatures (922 bytes, 16% reduction)
 Elliptic-curve signatures are even smaller than DSA, and are supported in APK v2 signing.
+
 Contributed by [Robert Xiao](https://github.com/nneonneo) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/4)
+
+## Remove classes.dex (824 bytes, 11% reduction)
+If a code element is not present in the manifest, no classes.dex file is required by the `PackageParser`.
+
+Contributed by [Robert Xiao](https://github.com/nneonneo) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/12)
+Original idea from [zhuowei](https://github.com/zhuowei), raised in this [Issue](https://github.com/fractalwrench/ApkGolf/issues/8)
