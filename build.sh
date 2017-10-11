@@ -18,9 +18,6 @@ recompress() {
 
 set -x
 
-echo "Creating keystore"
-keytool -genkeypair -keyalg EC -keysize 256 -v -keystore build/keystore.jks -storepass android -dname 'C=' -alias android -keypass android
-
 echo "Creating base apk"
 cp app/AndroidManifest.xml build/apk/
 
@@ -30,7 +27,7 @@ zip -j -r build/app-unsigned.apk build/apk
 recompress build/app-unsigned.apk
 
 echo "Signing archive"
-$ANDROID_HOME/build-tools/26.0.2/apksigner sign --v1-signing-enabled false --ks build/keystore.jks --out build/signed-release.apk --ks-pass pass:android --ks-key-alias android --min-sdk-version 24 build/app-unsigned.apk
+$ANDROID_HOME/build-tools/26.0.2/apksigner sign --v1-signing-enabled false --key key.pk8 --cert key.x509.pem --in build/app-unsigned.apk --out build/signed-release.apk --min-sdk-version 24
 
 set +x
 
