@@ -1,5 +1,5 @@
 # ApkGolf
-This repository hosts the smallest Android APK in the world. The current size of the APK is *824 bytes*.
+This repository hosts the smallest Android APK in the world. The current size of the APK is *820 bytes*.
 
 To learn more about how this was achieved, please read the [blog post](https://fractalwrench.co.uk/posts/playing-apk-golf-how-low-can-an-android-app-go/).
 
@@ -28,3 +28,8 @@ If a code element is not present in the manifest, no classes.dex file is require
 
 Contributed by [Robert Xiao](https://github.com/nneonneo) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/12)
 Original idea from [zhuowei](https://github.com/zhuowei), raised in this [Issue](https://github.com/fractalwrench/ApkGolf/issues/8)
+
+## Further hand tuning of manifest (820 bytes, 0.5% reduction)
+Further byte-level optimisation of what remains of the manifest.
+
+Contributed by [Madis Pink](https://github.com/madisp) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/6)
