@@ -31,9 +31,6 @@ rm build/apk/resources.arsc
 mv build/apk/res/layout/manifest.xml build/apk/AndroidManifest.xml
 rm -rf build/apk/res
 
-echo "Creating empty classes.dex"
-touch build/apk/classes.dex
-
 echo "Creating unsigned archive"
 zip -j -r build/app-unsigned.apk build/apk
 

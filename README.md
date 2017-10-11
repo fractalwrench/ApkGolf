@@ -1,5 +1,5 @@
 # ApkGolf
-This repository hosts the smallest Android APK in the world. The current size of the APK is *922 bytes*.
+This repository hosts the smallest Android APK in the world. The current size of the APK is *824 bytes*.
 
 To learn more about how this was achieved, please read the [blog post](https://fractalwrench.co.uk/posts/playing-apk-golf-how-low-can-an-android-app-go/).
 
