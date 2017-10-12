@@ -33,3 +33,9 @@ Original idea from [zhuowei](https://github.com/zhuowei), raised in this [Issue]
 Further byte-level optimisation of what remains of the manifest.
 
 Contributed by [Madis Pink](https://github.com/madisp) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/6)
+
+## Minimising APK Signing Certificate (678 bytes, 18% reduction)
+Manual removal of unnecessary fields present in the certificate used to sign the APK.
+
+Contributed by [kylubin](https://github.com/klyubin) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/15)
+
