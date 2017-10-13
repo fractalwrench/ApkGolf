@@ -37,5 +37,5 @@ Contributed by [Madis Pink](https://github.com/madisp) in this [Pull Request](ht
 ## Minimising APK Signing Certificate (678 bytes, 18% reduction)
 Manual removal of unnecessary fields present in the certificate used to sign the APK.
 
-Contributed by [kylubin](https://github.com/klyubin) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/15)
+Contributed by [klyubin](https://github.com/klyubin) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/15)
 
