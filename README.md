@@ -1,5 +1,5 @@
 # ApkGolf
-This repository hosts the smallest Android APK in the world. The current size of the APK is *678 bytes*.
+This repository hosts the smallest Android APK in the world. The current size of the APK is *677 bytes*.
 
 To learn more about how this was achieved, please read the [blog post](blog/BLOG_POST.md).
 
@@ -34,8 +34,8 @@ Further byte-level optimisation of what remains of the manifest.
 
 Contributed by [Madis Pink](https://github.com/madisp) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/6)
 
-## Minimising APK Signing Certificate (678 bytes, 18% reduction)
-Manual removal of unnecessary fields present in the certificate used to sign the APK.
+## Minimising APK Signing Certificate (677 bytes, 18% reduction)
+Remove unnecessary fields present in the certificate used to sign the APK.
 
 Contributed by [klyubin](https://github.com/klyubin) in this [Pull Request](https://github.com/fractalwrench/ApkGolf/pull/15)
-
+Automated by [Adam Yi](https://github.com/adamyi)
